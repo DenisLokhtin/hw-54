@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+import {useState} from "react";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+const cells = () => {
+  let cellsArr = [];
+
+  for (let i=0; i < 36; i++) {
+    cellsArr[i] = {hasItem: false, open: false}
+  }
+
+  console.log(cellsArr)
 }
+
+
+  const cell = () => {
+    return (
+        <div className="cell">
+
+        </div>
+    );
+  };
+
+  const playingField = () => {
+    return (
+        <div className="field">
+
+        </div>
+    );
+  };
+
+  const tries = () => {
+    return (
+        <p>
+          Tries: 0
+        </p>
+    );
+  };
+
+  const button = () => {
+    return (
+        <p>
+          <button className="btn" type="button">Reset</button>
+        </p>
+    );
+  };
+
+  return (
+      <div className="container">
+        {cells()}
+        {playingField()}
+        {tries()}
+        {button()}
+      </div>
+  );
+};
 
 export default App;
