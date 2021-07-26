@@ -13,8 +13,8 @@
   border-radius: 2px;
 }
 
-.open {
-  background: none;
+div .open {
+  background-color: white;
 }
 
 .cell {

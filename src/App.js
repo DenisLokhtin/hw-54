@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import Сell from "./components/cell"
-import './App.css';
 import Cell from "./components/cell";
+import './App.css';
 
 const App = () => {
 
@@ -17,12 +16,16 @@ const App = () => {
         console.log(cellsArr)
     }());
 
-    function click() {
-        console.log('click')
+    let cellClass = ['cell'];
+
+    const click = () => {
+        cellClass.push('open');
+        console.log(cellClass)
     }
 
+
     const printCells = cellsArr.map(() => {
-        return <Cell open={() => click()}/>
+        return <Cell classes={cellClass.join(' ')} open={() => click()}/>
     });
 
     const playingField = () => {
