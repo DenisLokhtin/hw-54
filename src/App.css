@@ -5,19 +5,31 @@
 }
 
 .field {
-  border: 1px solid slategrey;
+  border: 2px solid slategrey;
   width: 500px;
   height: 500px;
-  padding: 50px;
+  padding: 40px;
   margin-top: 50px;
+  border-radius: 2px;
+}
+
+.open {
+  background: none;
 }
 
 .cell {
   width: 75px;
   height: 75px;
-  background-color: slategrey;
+  background-color: darkslategrey;
   display: inline-block;
-  border-radius: 2px;
+  margin: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.cell:hover {
+  transform: scale(1.05);
 }
 
 .btn {

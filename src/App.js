@@ -1,59 +1,61 @@
-import {useState} from "react";
+import React, {useState} from "react";
+import Сell from "./components/cell"
 import './App.css';
+import Cell from "./components/cell";
 
 const App = () => {
 
-const cells = () => {
-  let cellsArr = [];
+    const [cellsArr, setCellsArr] = useState([]);
 
-  for (let i=0; i < 36; i++) {
-    cellsArr[i] = {hasItem: false, open: false}
-  }
+    (function cells() {
+        for (let i = 0; i < 36; i++) {
+            cellsArr[i] = {hasItem: false, open: false}
+        }
 
-  console.log(cellsArr)
-}
+        const randomCell = Math.floor(Math.random() * (35 + 1));
+        cellsArr[randomCell].hasItem = true;
+        console.log(cellsArr)
+    }());
 
+    function click() {
+        console.log('click')
+    }
 
-  const cell = () => {
+    const printCells = cellsArr.map(() => {
+        return <Cell open={() => click()}/>
+    });
+
+    const playingField = () => {
+        return (
+            <div className="field">
+                {printCells}
+            </div>
+        );
+    };
+
+    const tries = () => {
+        return (
+            <p>
+                Tries: 0
+            </p>
+        );
+    };
+
+    const button = () => {
+        return (
+            <p>
+                <button className="btn" type="button">Reset</button>
+            </p>
+        );
+    };
+
     return (
-        <div className="cell">
-
+        <div className="container">
+            {playingField()}
+            {tries()}
+            {button()}
         </div>
     );
-  };
-
-  const playingField = () => {
-    return (
-        <div className="field">
-
-        </div>
-    );
-  };
-
-  const tries = () => {
-    return (
-        <p>
-          Tries: 0
-        </p>
-    );
-  };
-
-  const button = () => {
-    return (
-        <p>
-          <button className="btn" type="button">Reset</button>
-        </p>
-    );
-  };
-
-  return (
-      <div className="container">
-        {cells()}
-        {playingField()}
-        {tries()}
-        {button()}
-      </div>
-  );
 };
 
 export default App;
